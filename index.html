@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JARVIS AI-OS</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Boot Screen -->
+    <div id="boot-screen">
+        <div class="boot-content">
+            <div class="boot-logo">
+                <i class="fas fa-atom"></i>
+                <h1>JARVIS</h1>
+            </div>
+            <div class="boot-text">Initializing AI Core...</div>
+            <div class="boot-bar">
+                <div class="boot-progress"></div>
+            </div>
+            <div class="boot-status">Loading offline neural networks</div>
+        </div>
+    </div>
+
+    <!-- Lock Screen -->
+    <div id="lock-screen" class="hidden">
+        <div class="lock-content">
+            <div class="lock-time" id="lock-time">12:00</div>
+            <div class="lock-date" id="lock-date">Monday, January 1</div>
+            <div class="lock-user">
+                <div class="user-avatar"><i class="fas fa-user"></i></div>
+                <div class="user-name">Administrator</div>
+            </div>
+            <div class="lock-input">
+                <input type="password" id="lock-password" placeholder="Enter password" value="jarvis">
+                <button id="unlock-btn"><i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="lock-hint">Password: jarvis</div>
+        </div>
+    </div>
+
+    <!-- Desktop -->
+    <div id="desktop" class="hidden">
+        <!-- Wallpaper -->
+        <div class="wallpaper"></div>
+
+        <!-- Desktop Icons -->
+        <div class="desktop-icons">
+            <div class="desktop-icon" data-app="ai">
+                <div class="icon-glow ai-glow"></div>
+                <i class="fas fa-brain"></i>
+                <span>JARVIS AI</span>
+            </div>
+            <div class="desktop-icon" data-app="files">
+                <div class="icon-glow"></div>
+                <i class="fas fa-folder"></i>
+                <span>Files</span>
+            </div>
+            <div class="desktop-icon" data-app="notes">
+                <div class="icon-glow"></div>
+                <i class="fas fa-sticky-note"></i>
+                <span>Notes</span>
+            </div>
+            <div class="desktop-icon" data-app="terminal">
+                <div class="icon-glow"></div>
+                <i class="fas fa-terminal"></i>
+                <span>Terminal</span>
+            </div>
+            <div class="desktop-icon" data-app="calculator">
+                <div class="icon-glow"></div>
+                <i class="fas fa-calculator"></i>
+                <span>Calculator</span>
+            </div>
+            <div class="desktop-icon" data-app="browser">
+                <div class="icon-glow"></div>
+                <i class="fas fa-globe"></i>
+                <span>Browser</span>
+            </div>
+            <div class="desktop-icon" data-app="email">
+                <div class="icon-glow"></div>
+                <i class="fas fa-envelope"></i>
+                <span>Mail</span>
+            </div>
+            <div class="desktop-icon" data-app="security">
+                <div class="icon-glow"></div>
+                <i class="fas fa-shield-alt"></i>
+                <span>Security</span>
+            </div>
+            <div class="desktop-icon" data-app="settings">
+                <div class="icon-glow"></div>
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </div>
+        </div>
+
+        <!-- Windows Container -->
+        <div id="windows-container"></div>
+
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="top-left">
+                <i class="fas fa-atom"></i>
+                <span class="os-name">JARVIS OS</span>
+            </div>
+            <div class="top-center">
+                <span id="top-time">12:00 PM</span>
+            </div>
+            <div class="top-right">
+                <div class="top-icon" id="wifi-icon"><i class="fas fa-wifi"></i></div>
+                <div class="top-icon" id="volume-icon"><i class="fas fa-volume-up"></i></div>
+                <div class="top-icon" id="battery-icon"><i class="fas fa-battery-full"></i></div>
+                <div class="top-icon" id="security-status" title="Security Active"><i class="fas fa-shield-alt"></i></div>
+                <div class="top-icon lock-btn" title="Lock Screen"><i class="fas fa-lock"></i></div>
+            </div>
+        </div>
+
+        <!-- Dock -->
+        <div class="dock">
+            <div class="dock-item" data-app="ai" title="JARVIS AI">
+                <div class="dock-indicator"></div>
+                <i class="fas fa-brain"></i>
+            </div>
+            <div class="dock-item" data-app="files" title="Files">
+                <div class="dock-indicator"></div>
+                <i class="fas fa-folder"></i>
+            </div>
+            <div class="dock-item" data-app="notes" title="Notes">
+                <div class="dock-indicator"></div>
+                <i class="fas fa-sticky-note"></i>
+            </div>
+            <div class="dock-item" data-app="terminal" title="Terminal">
+                <div class="dock-indicator"></div>
+                <i class="fas fa-terminal"></i>
+            </div>
+            <div class="dock-item" data-app="calculator" title="Calculator">
+                <div class="dock-indicator"></div>
+                <i class="fas fa-calculator"></i>
+            </div>
+            <div class="dock-item" data-app="browser" title="Browser">
+                <div class="dock-indicator"></div>
+                <i class="fas fa-globe"></i>
+            </div>
+            <div class="dock-item" data-app="email" title="Mail">
+                <div class="dock-indicator"></div>
+                <i class="fas fa-envelope"></i>
+            </div>
+            <div class="dock-item" data-app="security" title="Security">
+                <div class="dock-indicator"></div>
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <div class="dock-item" data-app="settings" title="Settings">
+                <div class="dock-indicator"></div>
+                <i class="fas fa-cog"></i>
+            </div>
+            <div class="dock-separator"></div>
+            <div class="dock-item" id="dock-trash" title="Trash">
+                <i class="fas fa-trash"></i>
+            </div>
+        </div>
+
+        <!-- Context Menu -->
+        <div id="context-menu" class="hidden">
+            <div class="ctx-item" data-action="new-folder"><i class="fas fa-folder"></i> New Folder</div>
+            <div class="ctx-item" data-action="new-file"><i class="fas fa-file"></i> New File</div>
+            <div class="ctx-separator"></div>
+            <div class="ctx-item" data-action="refresh"><i class="fas fa-sync"></i> Refresh</div>
+            <div class="ctx-item" data-action="settings"><i class="fas fa-cog"></i> Settings</div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast-container"></div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
